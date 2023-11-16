@@ -12,7 +12,9 @@
 <body id="app">
     <div id="content" class="d-flex mx-5 rounded-4">
         <!-- big image -->
-        <div id="img-container" class="position-relative"></div>
+        <div id="img-container" class="position-relative">
+            <img v-for="(slide, i) in slides" :src="slide.immagine" alt="immagine" class="position-absolute" :class="i === currentImg ? 'opacity-100' : 'opacity-0'">
+        </div>
         <!-- text -->
         <div id="text-container">
             <!-- <h1 id="title" class="text-white">Marvel's Avengers</h1>
@@ -31,7 +33,7 @@
         <!-- small images -->
         <div id="array-container">
             <div class="preview"><img :src="slides[slides.length-1].immagine"><div class="filter"></div></div>
-            <div class="preview" v-for="(slide, i) in slides"><img :src="slides[i].immagine"><div class="filter">asd</div></div>
+            <div class="preview" v-for="(slide, i) in slides"><img :src="slides[i].immagine"><div :class="i === currentImg ? 'filter opacity-0' : 'filter'"></div></div>
             <div class="preview"><img :src="slides[0].immagine"><div class="filter"></div></div>
         </div>
     </div>

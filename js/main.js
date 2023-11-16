@@ -23,10 +23,13 @@ createApp( {
                     prezzo: 699.99
                 }
             ],
+
+            currentImg: 1,
+            
         }
     },
 
     methods: {
-            
+
     }
 }).mount( '#app' );
