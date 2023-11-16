@@ -102,10 +102,12 @@ button {
 
 button#up {
     top: calc((var(--img-height) / 5) + 10px);
+    left: calc(((var(--img-width) / 3) / 2) - (var(--button-width) / 2));
 }
 
 button#down {
-    top: calc(((var(--img-height) + var(--img-height) / 5) - 10px) - var(--button-width));
+    top: calc(((var(--img-height) + var(--img-height) / 6) - 10px) - var(--button-width));
+    left: calc(((var(--img-width) / 3) / 2) - (var(--button-width) / 2));
 }
 
 button#play-pause {
