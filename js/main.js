@@ -25,7 +25,7 @@ createApp( {
             ],
 
             currentImg: 1,
-
+            animation: false
         }
     },
 
@@ -40,8 +40,11 @@ createApp( {
             this.currentImg++;  
         },
 
-        fillText(key, i) {
-            return this.slides[i].key
+        selectThumbnail(i) {
+            console.log(i);
+            if (!this.animation) {
+                this.currentImg = i;
+            }
         }
     }
 }).mount( '#app' );

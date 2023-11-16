@@ -33,13 +33,13 @@
         </div>
         <!-- small images -->
         <div id="array-container">
-            <div class="preview"><img :src="slides[slides.length-1].immagine"><div class="filter"></div></div>
-            <div class="preview" v-for="(slide, i) in slides"><img :src="slides[i].immagine"><div :class="i === currentImg ? 'filter opacity-0' : 'filter'"></div></div>
-            <div class="preview"><img :src="slides[0].immagine"><div class="filter"></div></div>
+            <div class="preview" @click="selectThumbnail(slides.length-1)"><img :src="slides[slides.length-1].immagine"><div class="filter"></div></div>
+            <div class="preview" @click="selectThumbnail(i)" v-for="(slide, i) in slides"><img :src="slides[i].immagine"><div :class="i === currentImg ? 'filter opacity-0' : 'filter'"></div></div>
+            <div class="preview" @click="selectThumbnail(0)"><img :src="slides[0].immagine"><div class="filter"></div></div>
         </div>
     </div>
+    
     <!-- JS -->
-    <!-- <script src="js/oldMain.js"></script> -->
     <script src="js/main.js"></script>
 </body>
 </html>
