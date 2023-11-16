@@ -25,14 +25,32 @@ createApp( {
             ],
 
             currentImg: 1,
-            animation: false
+            isPlaying: false,
+            isReversed: false,
+            // animation: false,
+            // isUp: false,
+            // isDown: false,
+            // order: {
+            //     1: 'one',
+            //     2: 'two',
+            //     3: 'three',
+            //     4: 'four',
+            //     5: 'five'
+            // }
         }
     },
-
+    
     methods: {
+        reorder: function () {
+            this.order.a = 'three';
+            this.order.b = 'one';
+            this.order.c = 'two';
+          },
+
         previousImage() {
             if (this.currentImg === 0) this.currentImg = this.slides.length;
             this.currentImg--;
+            this.shiftCardsDown();
         },
 
         nextImage() {
@@ -45,6 +63,41 @@ createApp( {
             if (!this.animation) {
                 this.currentImg = i;
             }
+        },
+
+        autoPlay() {
+    
+            console.log(this.isPlaying);
+            this.isPlaying = !this.isPlaying;
+            if (this.isPlaying) {
+                myInterval = setInterval(() => {
+                    if (!this.isReversed) {
+                        if (this.currentImg === this.slides.length-1) this.currentImg = -1;
+                        this.currentImg++; 
+                    } else {
+                        this.previousImage();
+                    }
+                }, 3000);
+            } else {
+                clearInterval(myInterval);
+            }
+        },
+
+        reverse() {
+            this.isReversed = !this.isReversed;
         }
+
+        // delay(ms) {
+        //     return new Promise(res => setTimeout(res, ms));
+        // },
+
+        // async shiftCardsDown() {
+        //     this.animation = true;
+        //     this.isDown = true;
+        //     await this.delay(500);
+        //     this.reorder();
+        //     this.isDown = false;
+        //     this.animation = false;
+        // }
     }
 }).mount( '#app' );

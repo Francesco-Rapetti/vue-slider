@@ -59,12 +59,20 @@ body {
     width: calc(100% - 2rem);
     height: calc((var(--img-height) / 3) - 2rem);
     position: relative;
-    transition: all .5s linear;
+    transition: all .5s ease-in-out;
     overflow: hidden;
     border: 0px solid transparent;
     cursor: pointer;
     margin: 1rem;
     border-radius: 16px;
+}
+
+.preview.shiftDown {
+    bottom: 0!important;
+}
+
+.preview.shiftUp {
+    bottom: calc(((var(--img-height) / 3) - 1rem) * 2)!important;
 }
 
 #array-container .preview > .filter {
@@ -167,3 +175,9 @@ h1, p {
     height: 200px;
     /* overflow: hidden; */
 }
+
+/* .one { order: 1; }
+.two { order: 2; }
+.three { order: 3; }
+.four { order: 4; }
+.five { order: 5; } */
