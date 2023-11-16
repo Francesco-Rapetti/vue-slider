@@ -38,6 +38,10 @@ createApp( {
         nextImage() {
             if (this.currentImg === this.slides.length-1) this.currentImg = -1;
             this.currentImg++;  
+        },
+
+        fillText(key, i) {
+            return this.slides[i].key
         }
     }
 }).mount( '#app' );
