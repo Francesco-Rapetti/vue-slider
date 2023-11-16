@@ -27,6 +27,8 @@ createApp( {
             currentImg: 1,
             isPlaying: false,
             isReversed: false,
+            play: 'fa-play',
+            pause: 'fa-pause',
             // animation: false,
             // isUp: false,
             // isDown: false,
