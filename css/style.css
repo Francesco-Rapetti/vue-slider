@@ -2,6 +2,7 @@
     --img-width: 600px;
     --img-height: 600px;
     --button-width: 30px;
+    --rotation: 0deg;
 }
 
 * {
@@ -130,6 +131,7 @@ button#play-pause {
 button#reverse {
     top: calc((var(--img-height) / 5) + 10px);
     left: -45px;
+    rotate: var(--rotation);
 }
 
 #button-container {

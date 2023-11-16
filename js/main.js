@@ -29,6 +29,7 @@ createApp( {
             isReversed: false,
             play: 'fa-play',
             pause: 'fa-pause',
+            degrees: '0deg',
             // animation: false,
             // isUp: false,
             // isDown: false,
@@ -43,18 +44,12 @@ createApp( {
     },
     
     methods: {
-        reorder: function () {
-            this.order.a = 'three';
-            this.order.b = 'one';
-            this.order.c = 'two';
-          },
-
+        
         previousImage() {
             if (this.currentImg === 0) this.currentImg = this.slides.length;
             this.currentImg--;
-            this.shiftCardsDown();
         },
-
+        
         nextImage() {
             if (this.currentImg === this.slides.length-1) this.currentImg = -1;
             this.currentImg++;  
@@ -66,7 +61,7 @@ createApp( {
                 this.currentImg = i;
             }
         },
-
+        
         autoPlay() {
     
             console.log(this.isPlaying);
@@ -87,7 +82,9 @@ createApp( {
 
         reverse() {
             this.isReversed = !this.isReversed;
-        }
+            this.degrees = (parseInt(this.degrees.substring(0, this.degrees.length - 3)) - 360).toString() + 'deg';
+            console.log(this.degrees);
+        },
 
         // delay(ms) {
         //     return new Promise(res => setTimeout(res, ms));
